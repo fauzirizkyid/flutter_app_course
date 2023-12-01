@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/core/config/routes/router.gr.dart';
 import 'package:flutter_app/core/config/theme/core/fonts/text_theme.dart';
 import 'package:flutter_app/core/utils/ui_helper.dart';
-import 'package:flutter_app/features/playground/presentation/widgets/playground_menus_widget.dart';
+import 'package:flutter_app/features/playground/domain/usecases/playground_list_menu.dart';
 
 @RoutePage()
 class PlaygroundMainPage extends StatelessWidget {
@@ -23,31 +22,16 @@ class PlaygroundMainPage extends StatelessWidget {
                 style: myTextTheme.titleLarge,
               ),
               UIHelper.verticalSpace(10),
-              PlaygroundMenus(
-                title: 'Dummy UI',
-                description:
-                    'Practice flutter UI and get familiar with UI Widgets',
-                onTap: () {
-                  context.pushRoute(const DummyUIRoute());
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: playgroundMenu(context).length,
+                itemBuilder: (context, index) {
+                  var widget = playgroundMenu(context);
+                  return widget[index];
                 },
               ),
-              PlaygroundMenus(
-                title: 'Simple Calculator',
-                description:
-                    'Creating calculator app that consists add, divide, substract, multiply function',
-                onTap: () {},
-              ),
-              PlaygroundMenus(
-                title: 'Input Validation',
-                description: 'Play around with email input & password input',
-                onTap: () {},
-              ),
-              PlaygroundMenus(
-                title: 'Switch App',
-                description:
-                    'Goes to main home page and choose between playground or Pixels ',
-                onTap: () {},
-              ),
+              
             ],
           ),
         ),
