@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/core/components/required_text.dart';
 import 'package:flutter_app/core/config/theme/core/colors/colors_const.dart';
-import 'package:flutter_app/core/utils/text_theme_extension.dart';
-import 'package:flutter_app/core/utils/ui_helper.dart';
+import 'package:flutter_app/core/config/utils/text_theme_extension.dart';
+import 'package:flutter_app/core/config/utils/ui_helper.dart';
 
 class TextFormFieldCustom extends StatelessWidget {
   final TextInputType? keyboardType;

@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter_app/core/config/injection/injection.dart';
 import 'package:logger/logger.dart';
-import 'package:flutter_app/core/injection/injection.dart';
 
 class SimpleBlocObserver extends BlocObserver {
   @override

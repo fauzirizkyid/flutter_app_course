@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_app/core/config/routes/router.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
-import 'package:flutter_app/core/env/env.dart';
+import 'package:flutter_app/core/config/env/env.dart';
 
 @module
 abstract class RegisterModule {

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/core/config/theme/core/colors/colors_const.dart';
 import 'package:flutter_app/core/config/theme/core/fonts/text_theme.dart';
-import 'package:flutter_app/core/utils/ui_helper.dart';
+import 'package:flutter_app/core/config/utils/ui_helper.dart';
 import 'package:flutter_app/features/playground/presentation/widgets/playground_menus_widget.dart';
 
 @RoutePage()

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/core/config/theme/core/colors/colors_const.dart';
-import 'package:flutter_app/core/utils/text_theme_extension.dart';
+import 'package:flutter_app/core/config/utils/text_theme_extension.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
