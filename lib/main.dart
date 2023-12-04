@@ -1,9 +1,15 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/config/injection/injection.dart';
 import 'package:flutter_app/core/config/routes/router.dart';
 import 'package:flutter_app/core/config/theme/core/fonts/text_theme.dart';
+import 'package:flutter_app/core/config/utils/simple_bloc_observer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
+  configureInjection();
   runApp(const MyApp());
 }
 
