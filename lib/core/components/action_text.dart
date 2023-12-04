@@ -1,53 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/core/config/theme/core/fonts/text_theme.dart';
+import 'package:flutter_app/core/config/theme/core/colors/colors_const.dart';
+import 'package:flutter_app/core/utils/text_theme_extension.dart';
+import 'package:flutter_app/core/utils/ui_helper.dart';
 
 class ActionText extends StatelessWidget {
+  final VoidCallback onTap;
+  final String title;
+  final String desc;
+  final int? flex;
+  final bool needDivider;
   const ActionText({
     super.key,
-    required this.label,
-    this.description,
-    this.flex,
     required this.onTap,
+    required this.title,
+    required this.desc,
+    this.flex,
+    this.needDivider = true,
   });
-
-  final String label;
-  final String? description;
-  final int? flex;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    label,
-                    style: myTextTheme.titleLarge,
-                  ),
-                  Text(description ?? 'Default Description'),
-                ],
+    return Column(
+      children: [
+        InkWell(
+          onTap: onTap,
+          child: Row(
+            children: [
+              Flexible(
+                flex: flex ?? 3,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: context.textTheme.headlineMedium?.copyWith(
+                        color: ColorConstant.primary,
+                      ),
+                    ),
+                    Text(
+                      desc,
+                      style: context.textTheme.bodySmall?.copyWith(
+                        color: ColorConstant.grey,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.red,
-                child: const Icon(Icons.chevron_right),
-              ),
-            )
-          ],
+              const Spacer(),
+              const Icon(Icons.arrow_forward_ios_rounded)
+            ],
+          ),
         ),
-      ),
+        if (needDivider) UIHelper.divider(),
+      ],
     );
   }
 }
