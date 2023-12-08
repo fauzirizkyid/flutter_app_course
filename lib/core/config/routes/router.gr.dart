@@ -8,27 +8,35 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:flutter_app/features/news/presentation/pages/news_page.dart'
+    as _i2;
 import 'package:flutter_app/features/playground/presentation/pages/dummy_ui/dummy_ui_page.dart'
     as _i1;
 import 'package:flutter_app/features/playground/presentation/pages/playground_main_page.dart'
-    as _i2;
+    as _i3;
 
-abstract class $RootRouter extends _i3.RootStackRouter {
+abstract class $RootRouter extends _i4.RootStackRouter {
   $RootRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
+  final Map<String, _i4.PageFactory> pagesMap = {
     DummyUIRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.DummyUIPage(),
       );
     },
-    PlaygroundMainRoute.name: (routeData) {
-      return _i3.AutoRoutePage<dynamic>(
+    NewsRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.PlaygroundMainPage(),
+        child: const _i2.NewsPage(),
+      );
+    },
+    PlaygroundMainRoute.name: (routeData) {
+      return _i4.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.PlaygroundMainPage(),
       );
     },
   };
@@ -36,8 +44,8 @@ abstract class $RootRouter extends _i3.RootStackRouter {
 
 /// generated route for
 /// [_i1.DummyUIPage]
-class DummyUIRoute extends _i3.PageRouteInfo<void> {
-  const DummyUIRoute({List<_i3.PageRouteInfo>? children})
+class DummyUIRoute extends _i4.PageRouteInfo<void> {
+  const DummyUIRoute({List<_i4.PageRouteInfo>? children})
       : super(
           DummyUIRoute.name,
           initialChildren: children,
@@ -45,13 +53,27 @@ class DummyUIRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'DummyUIRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.PlaygroundMainPage]
-class PlaygroundMainRoute extends _i3.PageRouteInfo<void> {
-  const PlaygroundMainRoute({List<_i3.PageRouteInfo>? children})
+/// [_i2.NewsPage]
+class NewsRoute extends _i4.PageRouteInfo<void> {
+  const NewsRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          NewsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NewsRoute';
+
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.PlaygroundMainPage]
+class PlaygroundMainRoute extends _i4.PageRouteInfo<void> {
+  const PlaygroundMainRoute({List<_i4.PageRouteInfo>? children})
       : super(
           PlaygroundMainRoute.name,
           initialChildren: children,
@@ -59,5 +81,5 @@ class PlaygroundMainRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'PlaygroundMainRoute';
 
-  static const _i3.PageInfo<void> page = _i3.PageInfo<void>(name);
+  static const _i4.PageInfo<void> page = _i4.PageInfo<void>(name);
 }

@@ -27,11 +27,16 @@ class ApiHelper {
         _queryParameters.addAll(queryParameters);
       }
 
-      final Response response = await _dio.get(
+      print("_queryParameters: $path");
+      print("_queryParameters: $_queryParameters");
+
+      final response = await _dio.get(
         path,
         queryParameters: _queryParameters,
         options: options,
       );
+
+      print("_queryParameters: $response");
       return ApiConfiguration.handleApiResponse(response);
     } on SocketException {
       return Future.error(NoInternetException());

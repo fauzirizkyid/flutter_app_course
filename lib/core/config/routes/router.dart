@@ -10,7 +10,7 @@ class RootRouter extends $RootRouter implements AutoRouteGuard {
   List<AutoRoute> get routes => [
         AutoRoute(
           path: '/main',
-          page: PlaygroundMainRoute.page,
+          page: NewsRoute.page,
           initial: true,
         ),
         AutoRoute(
