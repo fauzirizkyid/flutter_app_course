@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/applications/app_bloc/app_bloc.dart';
 import 'package:flutter_app/core/config/injection/injection.dart';
 import 'package:flutter_app/features/news/application/bloc/news_bloc/news_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +19,24 @@ class NewsPage extends StatelessWidget {
       child: BlocBuilder<NewsBloc, NewsState>(
         builder: (context, state) {
           return Scaffold(
+            appBar: AppBar(
+              title: const Text('News'),
+              actions: [
+                BlocBuilder<AppBloc, AppState>(
+                  builder: (context, state) {
+                    return Switch.adaptive(
+                      value:
+                          state.brightness == Brightness.light ? true : false,
+                      onChanged: (bool value) {
+                        context.read<AppBloc>().add(
+                              const AppEvent.changeBrightness(),
+                            );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
             body: state.getArticlesFailureOrSuccess.fold(
               () => state.isLoading
                   ? const Center(
